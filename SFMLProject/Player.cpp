@@ -27,8 +27,10 @@ public:
 	sf::Sprite sprite;
 	sf::Vector2f movement;
 	
-	Player(sf::RenderWindow* window)
-		:window(window){
+	int damage = 5; /* we're going to update this later to be a part of the weapons class */
+
+	Player(sf::RenderWindow* window, std::vector<Enemy*> *enemies)
+		:window(window), enemies(enemies) {
 		Collision::CreateTextureAndBitmask(idle, spritesPath + "characters/1.png");
 		Collision::CreateTextureAndBitmask(down, spritesPath + "characters/1_south2.png");
 		Collision::CreateTextureAndBitmask(up, spritesPath + "characters/1_north.png");
@@ -172,7 +174,7 @@ public:
 	}
 
 	void fire() {
-		Bullet* bullet = new Bullet(getAngleToMouse(), midPointX, midPointY , 1);
+		Bullet* bullet = new Bullet(getAngleToMouse(), midPointX, midPointY , 1, damage, enemies);
 		bullets.emplace_back(bullet);
 	}
 
@@ -183,7 +185,7 @@ public:
 			std::cout << "Angle" << getAngleToMouse() << std::endl;
 
 
-			Bullet* bullet = new Bullet(random, midPointX, midPointY, 5);
+			Bullet* bullet = new Bullet(random, midPointX, midPointY, 5, damage, enemies);
 			bullets.emplace_back(bullet);
 		}
 		
@@ -206,6 +208,7 @@ private:
 
 	sf::RenderWindow* window;
 
+	std::vector<Enemy*> *enemies;
 	float x;
 	float y;
 	float xVelocity;

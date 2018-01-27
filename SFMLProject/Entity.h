@@ -15,12 +15,14 @@ public:
 	int maxHealth;
 	int health;
 
+	sf::Sprite sprite;
+
+
 	inline void updateMousePosition(sf::Vector2f mouse);
 	inline virtual void update();
 protected:
 	float speed;
 	float radius;
-	sf::Sprite sprite;
 
 
 	enum EDirection {

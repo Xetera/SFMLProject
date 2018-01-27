@@ -7,7 +7,13 @@ namespace util {
 	float getDistance(sf::Vector2f& vector1, sf::Vector2f& vector2);
 
 	extern float randomRange(float rangeStart, float rangeEnd);
+	extern int   randomRange(int min, int max);
 	extern float getVectorAngle(sf::Vector2f&);
 	extern sf::Vector2f getUnitVector(sf::Vector2f& vector);
 	extern bool vectorEmpty(sf::Vector2f& vector);
+
+	template<typename T>
+	extern void printVector(std::vector<T> vector);
+
+	extern int generateID();
 }

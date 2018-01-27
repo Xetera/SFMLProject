@@ -33,6 +33,14 @@ float util::randomRange(float min, float max) {
 
 }
 
+int util::randomRange(int min, int max) {
+	std::random_device rd; // obtain a random number from hardware
+	std::mt19937 eng(rd()); // seed the generator
+	std::uniform_int_distribution<> distr(min, max); // define the range
+
+	return distr(eng);
+}
+
 float util::getVectorAngle(sf::Vector2f& vector) {
 	return atan2(vector.y, vector.x);
 }
@@ -52,3 +60,14 @@ bool util::vectorEmpty(sf::Vector2f& vector) {
 	return vector.x == 0 && vector.y == 0;
 }
 
+template<typename T>
+void util::printVector(std::vector<T> vector) {
+	size_t size = vector.size();
+	for (std::vector<T>::size_type i = 0; i < size; ++i) {
+		std::cout << vector[i] << std::endl;
+	}
+}
+
+int util::generateID() {
+	return util::randomRange(100000, 999999);
+}

@@ -20,9 +20,13 @@ void updateEntities() {
 	}
 }
 
+std::vector<Enemy*> *enemies = new std::vector<Enemy*>;
+
 int main() {
 	srand(time(0));
-	
+
+
+
 	sf::Sprite cursor;
 	sf::Texture cursorTexture;
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Game");
@@ -35,17 +39,18 @@ int main() {
 
 	sf::RenderWindow* window_ptr = &window;
 
-	Player player(window_ptr);
+	Player player(window_ptr, enemies);
 
-	entities.emplace_back(player);
+	//entities.emplace_back(player);
 
 	float x = 4.f; 
 	float y = 4.f;
 	window.setFramerateLimit(120);
 
-	Enemy enemy;
-	Enemy enemy2;
-
+	Enemy enemy(enemies);
+	Enemy enemy2(enemies);
+	
+	cout << "Enemies size: " << enemies->size() << endl;
 
 	while (window.isOpen()) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
@@ -91,12 +96,13 @@ int main() {
 
 		window.draw(player.sprite);
 		window.draw(cursor);
+		window.draw(enemy.sprite);
 
 		player.updateMousePosition(position);
 		
 
 		player.update();
-
+		enemy.update();
 		window.display();
 
 
