@@ -5,7 +5,7 @@
 #include"AnimatedSprite.hpp"
 #include<vector>
 #include"Bullet.cpp"
-
+#include"Collision.h"
 #define _USE_MATH_DEFINES
 #include<math.h>
 
@@ -29,15 +29,15 @@ public:
 	
 	Player(sf::RenderWindow* window)
 		:window(window){
-		idle.loadFromFile(spritesPath + "characters/1.png");
-		down.loadFromFile(spritesPath + "characters/1_south2.png");
-		up.loadFromFile(spritesPath + "characters/1_north.png");
-		upRight.loadFromFile(spritesPath + "characters/1_diagup.png");
-		upLeft.loadFromFile(spritesPath + "characters/1_diagup.png");
-		downLeft.loadFromFile(spritesPath + "characters/1_diagdown.png");
-		downRight.loadFromFile(spritesPath + "characters/1_diagdown.png");
-		left.loadFromFile(spritesPath + "characters/1_side.png");
-		right.loadFromFile(spritesPath + "characters/1_side.png");
+		Collision::CreateTextureAndBitmask(idle, spritesPath + "characters/1.png");
+		Collision::CreateTextureAndBitmask(down, spritesPath + "characters/1_south2.png");
+		Collision::CreateTextureAndBitmask(up, spritesPath + "characters/1_north.png");
+		Collision::CreateTextureAndBitmask(upRight, spritesPath + "characters/1_diagup.png");
+		Collision::CreateTextureAndBitmask(upLeft, spritesPath + "characters/1_diagup.png");
+		Collision::CreateTextureAndBitmask(downLeft, spritesPath + "characters/1_diagdown.png");
+		Collision::CreateTextureAndBitmask(downRight, spritesPath + "characters/1_diagdown.png");
+		Collision::CreateTextureAndBitmask(left, spritesPath + "characters/1_side.png");
+		Collision::CreateTextureAndBitmask(right, spritesPath + "characters/1_side.png");
 
 		sprite.setTexture(idle);
 		//sprite.setTextureRect(sf::IntRect(30, 0, 20, 24));

@@ -4,11 +4,11 @@
 #include"Util.h"
 #include<iostream>
 #include<math.h>
+#include"Collision.h"
+
 
 class Bullet {
 	sf::Texture spriteTexture;
-
-
 
 	float xVelocity;
 	float yVelocity;
@@ -20,7 +20,7 @@ public:
 
 	Bullet(float angle, float x, float y, float speed)
 		: x(x), y(y), speed(speed) {
-		spriteTexture.loadFromFile(spritesPath + "other/bulletb.png");
+		Collision::CreateTextureAndBitmask(spriteTexture, spritesPath + "other/bulletb.png");
 		sprite.setTexture(spriteTexture);
 		sprite.rotate(util::radiansToDegrees(angle));
 		sprite.setPosition(x, y);
@@ -41,4 +41,9 @@ public:
 	void fire() {
 		
 	}
+
+	void checkCollisions() {
+
+	}
+
 };
