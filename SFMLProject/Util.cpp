@@ -28,7 +28,7 @@ float util::getDistance(sf::Vector2f& vector1, sf::Vector2f& vector2) {
 float util::randomRange(float min, float max) {
 
 	float amount = (max - min) * ((((float)rand()) / (float)RAND_MAX)) + min;
-	std::cout << "Random Number: " << amount << std::endl;
+	//std::cout << "Random Number: " << amount << std::endl;
 	return amount;
 
 }

@@ -87,7 +87,7 @@ public:
 	}
 
 	virtual void update() override {
-		cout << "X: " << x << ", Y: " << y << endl;
+		//cout << "X: " << x << ", Y: " << y << endl;
 		x = sprite.getPosition().x;
 		y = sprite.getPosition().y;
 
@@ -181,8 +181,8 @@ public:
 	void fireShotgun() {
 		for (int i = 0; i < 4; ++i) {
 			float random = util::randomRange(getAngleToMouse() - 0.5f, getAngleToMouse() +  0.5f);
-			std::cout << random << std::endl;
-			std::cout << "Angle" << getAngleToMouse() << std::endl;
+			//std::cout << random << std::endl;
+			//std::cout << "Angle" << getAngleToMouse() << std::endl;
 
 
 			Bullet* bullet = new Bullet(random, midPointX, midPointY, 5, damage, enemies);
@@ -231,7 +231,7 @@ private:
 	int bulletDecay = 100;
 	void drawBullets() {
 		size_t bulletsSize = bullets.size();
-		//std::cout << bulletsSize << std::endl;
+		// std::cout << bulletsSize << std::endl;
 		// we're going to include the logic for destroying them here as well
 
 		for (size_t i = bulletsSize - 1; i > 0 ; --i) {

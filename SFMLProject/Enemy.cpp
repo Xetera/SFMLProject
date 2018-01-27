@@ -4,35 +4,36 @@
 #include"Collision.h"
 #include<iostream>
 #include"Util.h"
-Enemy::Enemy(std::vector<Enemy*> *enemies)
-	:enemies(enemies) {
+Enemy::Enemy(std::vector<Enemy*> *enemies, const int health)
+	:enemies(enemies), health(health) {
 	id = util::generateID();
+
+
+
 	std::cout << id << std::endl;
 	enemies->emplace_back(this);
 	std::cout << "Enemies size in Enemy: " << enemies->size() << std::endl;
 	Collision::CreateTextureAndBitmask(idle, spritesPath + "monster/slime1_front.png");
+	sprite.setTexture(idle);
+
 	x = 400; 
 	y = 300;
+	sprite.setPosition(x, y);
+}
+
+Enemy::~Enemy() {
+	std::cout << "Enemy killed" << std::endl;
 }
 
 void Enemy::update() {
-	
+	//std::cout << health << std::endl;
 }
 
-void Enemy::hit(const int& damage) {
-	if (health -= damage > 0) {
-		die();
-		return;
-	}
+bool Enemy::hit(const int& damage) {
 	health -= damage;
-}
-
-void Enemy::die() {
-	size_t size = enemies->size();
-	for (std::vector<Enemy*>::size_type i = 0; i < size; ++i) {
-		Enemy* enemy = enemies->at(i);
-		if (enemy->id == this->id) {
-			enemies->erase(enemies->begin() + i);
-		}
+	std::cout << health << std::endl;
+	if (health < 0) {
+		return true;
 	}
+	return false;
 }

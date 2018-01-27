@@ -32,13 +32,14 @@ public:
 	}
 	
 	~Bullet() {
-		std::cout << "Destroyed" << std::endl;
+		//std::cout << "Destroyed" << std::endl;
 	}
 
 	void update() {
 		x += xVelocity;
 		y += yVelocity;
 		sprite.move(xVelocity * speed, yVelocity * speed);
+		checkCollisions();
 	}
 
 	void fire() {
@@ -47,13 +48,28 @@ public:
 
 	void checkCollisions() {
 		size_t size = enemies->size();
-		for (int i = size; i >= 0; --i) {
+		for (int i = size; i > 0; --i) {
 			Enemy* enemy = enemies->at(i);
+			/*
 			if (Collision::PixelPerfectTest(sprite, enemy->sprite)) {
-				enemy->hit(damage);
+				std::cout << "HIT" << std::endl;
+				bool isDead = enemy->hit(damage);
+				if (isDead)	{
+					kill(enemy, i);
+				}
+
 			}
+			*/
 		}
 		
+	}
+
+	template<typename T>
+	void kill(T* obj, const size_t& index) {
+		// everything we're gonna be calling delete on here will be a 'new' word object
+		enemies->erase(enemies->begin() + index);
+		delete obj;
+
 	}
 
 };

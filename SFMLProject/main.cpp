@@ -47,8 +47,8 @@ int main() {
 	float y = 4.f;
 	window.setFramerateLimit(120);
 
-	Enemy enemy(enemies);
-	Enemy enemy2(enemies);
+	Enemy* enemy = new Enemy(enemies, 10);
+	Enemy* enemy2 = new Enemy(enemies, 10);
 	
 	cout << "Enemies size: " << enemies->size() << endl;
 
@@ -95,14 +95,15 @@ int main() {
 		window.clear();
 
 		window.draw(player.sprite);
+		window.draw(enemy->sprite);
 		window.draw(cursor);
-		window.draw(enemy.sprite);
+
 
 		player.updateMousePosition(position);
 		
 
 		player.update();
-		enemy.update();
+		enemy->update();
 		window.display();
 
 
