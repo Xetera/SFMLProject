@@ -9,5 +9,5 @@ namespace util {
 	extern float randomRange(float rangeStart, float rangeEnd);
 	extern float getVectorAngle(sf::Vector2f&);
 	extern sf::Vector2f getUnitVector(sf::Vector2f& vector);
-	extern sf::Vector2f vectorEmpty(sf::Vector2f& vector);
+	extern bool vectorEmpty(sf::Vector2f& vector);
 }

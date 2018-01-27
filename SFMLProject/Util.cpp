@@ -48,7 +48,7 @@ sf::Vector2f util::getUnitVector(sf::Vector2f& vector) {
 	return out;
 }
 
-sf::Vector2f util::vectorEmpty(sf::Vector2f& vector) {
+bool util::vectorEmpty(sf::Vector2f& vector) {
 	return vector.x == 0 && vector.y == 0;
 }
 

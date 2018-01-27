@@ -32,10 +32,13 @@ public:
 		idle.loadFromFile(spritesPath + "characters/1.png");
 		down.loadFromFile(spritesPath + "characters/1_south2.png");
 		up.loadFromFile(spritesPath + "characters/1_north.png");
+		upRight.loadFromFile(spritesPath + "characters/1_diagup.png");
 		upLeft.loadFromFile(spritesPath + "characters/1_diagup.png");
 		downLeft.loadFromFile(spritesPath + "characters/1_diagdown.png");
+		downRight.loadFromFile(spritesPath + "characters/1_diagdown.png");
 		left.loadFromFile(spritesPath + "characters/1_side.png");
 		right.loadFromFile(spritesPath + "characters/1_side.png");
+
 		sprite.setTexture(idle);
 		//sprite.setTextureRect(sf::IntRect(30, 0, 20, 24));
 		scale = 1;
@@ -82,51 +85,64 @@ public:
 	}
 
 	virtual void update() override {
-		cout << "X: " << x << " Y: " << y << endl;
+		cout << "X: " << x << ", Y: " << y << endl;
 		x = sprite.getPosition().x;
 		y = sprite.getPosition().y;
-		if (util::vectorEmpty(movement)) return;
+
+
+		midPointX = x + (spriteSizeX * scale) / 2;
+		midPointY = y + (spriteSizeY * scale) / 2;
+
+		if (bullets.size() != 0) {
+			drawBullets();
+
+		}
+
+		//xVelocity = 0.f;
+		//xVelocity = 0.f;
+
+		if (util::vectorEmpty(movement)) { // our guy is not moving
+			if (sprite.getTexture() != &idle) sprite.setTexture(idle);
+			return;
+		}
+
 		sf::Vector2f unitVector = util::getUnitVector(movement);
 		sprite.move(unitVector);
 
-		idleAnimation();
-		/*
-		if (movement.x == 0.0f && movement.y == 0.0f) {
-			idleAnimation();
+		if (movement.x > 0 && movement.y == 0) {
+			cycleRightAnimation();
 		}
-		else {
-			if (movement.x > 0 && movement.y == 0) {
-				cycleRightAnimation();
-			}
 
-			else if (movement.x < 0 && movement.y == 0) {
-				cycleLeftAnimation();
-			}
+		else if (movement.x < 0 && movement.y == 0) {
+			cycleLeftAnimation();
+		}
 
-			else if (movement.x == 0 && movement.y < 0) {
-				cycleUpAnimation();
-			}
-			else if (movement.x == 0 && movement.y > 0) {
-				cycleDownAnimation();
-			}
+		else if (movement.x == 0 && movement.y < 0) {
+			cycleUpAnimation();
+		}
+		else if (movement.x == 0 && movement.y > 0) {
+			cycleDownAnimation();
+		}
 
-			else if (movement.x < 0 && movement.y) {
-				cycleUpLeftAnimation();
-			}
+		else if (movement.x < 0 && movement.y) {
+			cycleUpLeftAnimation();
+		}
 
-			else if (movement.x > 0 && movement.y < 0) {
-				cycleUpRightAnimation();
-			}
-			else if (movement.x > 0 && movement.y > 0) {
-				cycleDownRightAnimation();
-			}
-			else if (movement.x < 0 && movement.y > 0) {
-				cycleDownLeftAnimation();
+		else if (movement.x > 0 && movement.y < 0) {
+			cycleUpRightAnimation();
+		}
 
-			}
+		else if (movement.x > 0 && movement.y > 0) {
+			cycleDownRightAnimation();
+		}
+
+		else if (movement.x < 0 && movement.y > 0) {
+			cycleDownLeftAnimation();
+
+		}
 	
-		}
-		*/
+	
+		
 		movement.x = 0;
 		movement.y = 0;
 
@@ -153,16 +169,6 @@ public:
 		//moveToMouse();
 		//std::thread first;
 
-		midPointX = x + (spriteSizeX * scale) / 2;
-		midPointY = y + (spriteSizeY * scale) / 2;
-
-
-		if (bullets.size() != 0) {
-			drawBullets();
-
-		}
-		xVelocity = 0.f;
-		xVelocity = 0.f;
 	}
 
 	void fire() {
@@ -324,7 +330,7 @@ private:
 		}
 	}
 
-	void cycleUpLeftAnimation() {
+	void cycleUpRightAnimation() {
 		cycleOffset++;
 		sprite.setTexture(upLeft);
 
@@ -339,7 +345,7 @@ private:
 		}
 	}
 
-	void cycleUpRightAnimation() {
+	void cycleUpLeftAnimation() {
 		cycleOffset++;
 		sprite.setTexture(upRight);
 
@@ -348,7 +354,7 @@ private:
 		}
 
 		if (cycleOffset >= 20) {
-			sprite.setTextureRect(sf::IntRect(20 * spriteCycle, 0, 20, 24));
+			sprite.setTextureRect(sf::IntRect(20 + (20 * spriteCycle), 0, -20, 24));
 			cycleOffset = 0;
 			spriteCycle++;
 		}
@@ -363,7 +369,7 @@ private:
 		}
 
 		if (cycleOffset >= 20) {
-			sprite.setTextureRect(sf::IntRect(20 * spriteCycle, 0, 20, 24));
+			sprite.setTextureRect(sf::IntRect(20 + (20 * spriteCycle), 0, -20, 24));
 			cycleOffset = 0;
 			spriteCycle++;
 		}
@@ -378,16 +384,14 @@ private:
 		}
 
 		if (cycleOffset >= 20) {
-			sprite.setTextureRect(sf::IntRect(20 * spriteCycle, 0, 20, 24));
+			sprite.setTextureRect(sf::IntRect(20 + (20 * spriteCycle), 0, -20, 24));
 			cycleOffset = 0;
 			spriteCycle++;
 		}
 	}
 
 	void idleAnimation() {
-		if (sprite.getTexture() == &idle) {
-			return;
-		}
+
 		sprite.setTexture(idle);
 
 	}
