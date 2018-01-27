@@ -44,6 +44,9 @@ public:
 		spriteSizeY = (sprite.getTexture()->getSize().y);
 		sprite.setOrigin(x, y);
 
+		sprite.setPosition(windowX / 2, windowY / 2);
+		movement.x = 0;
+		movement.y = 0;
 
 	}
 
@@ -79,19 +82,21 @@ public:
 	}
 
 	virtual void update() override {
+		cout << "X: " << x << " Y: " << y << endl;
 		x = sprite.getPosition().x;
 		y = sprite.getPosition().y;
+		if (util::vectorEmpty(movement)) return;
+		sf::Vector2f unitVector = util::getUnitVector(movement);
+		sprite.move(unitVector);
 
-		sprite.move(util::getUnitVector(movement));
-
-		cout << movement.x << " " << movement.y << endl;
+		idleAnimation();
+		/*
 		if (movement.x == 0.0f && movement.y == 0.0f) {
 			idleAnimation();
 		}
 		else {
 			if (movement.x > 0 && movement.y == 0) {
 				cycleRightAnimation();
-				cout << "Going left" << endl;
 			}
 
 			else if (movement.x < 0 && movement.y == 0) {
@@ -119,13 +124,9 @@ public:
 				cycleDownLeftAnimation();
 
 			}
-		
-
 	
 		}
-	
-		
-		
+		*/
 		movement.x = 0;
 		movement.y = 0;
 
@@ -197,7 +198,6 @@ private:
 
 	sf::Texture pistol;
 
-
 	sf::RenderWindow* window;
 
 	float x;
@@ -224,22 +224,19 @@ private:
 		size_t bulletsSize = bullets.size();
 		//std::cout << bulletsSize << std::endl;
 		// we're going to include the logic for destroying them here as well
+
 		for (size_t i = bulletsSize - 1; i > 0 ; --i) {
 			// looping backwards to avoid shifting when we remove bullets
-
-			if (util::getDistance(midPointX, midPointY, bullets[i]->x, bullets[i]->y) < bulletDecay) {
-				
+			if (util::getDistance(midPointX, midPointY, bullets[i]->x, bullets[i]->y) < bulletDecay) {	
 				bullets[i]->update();
 				window->draw(bullets[i]->sprite);
-				
 			}
 			else {
 				Bullet* bullet_ptr = bullets[i];
-				
+
 				// we probably don't want to be removing things from an array while looping
 				bullets.erase(bullets.begin() + i);
 				delete bullet_ptr;
-				
 			}
 		}
 	}
@@ -388,11 +385,11 @@ private:
 	}
 
 	void idleAnimation() {
-		cout << sprite.getTexture() << endl;
 		if (sprite.getTexture() == &idle) {
 			return;
 		}
 		sprite.setTexture(idle);
+
 	}
 	
 };

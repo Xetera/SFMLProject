@@ -46,7 +46,6 @@ int main() {
 	Enemy enemy;
 	Enemy enemy2;
 
-	cout << enemies->size() << endl;
 
 	while (window.isOpen()) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
