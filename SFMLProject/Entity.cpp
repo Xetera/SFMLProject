@@ -27,7 +27,7 @@ void Entity::update(){
 	}
 
 	if (x < 0) {
-		x = radius;
+		x = radius;  
 		xVelocity = xVelocity * -1;
 	}
 	if (y < 0) {
