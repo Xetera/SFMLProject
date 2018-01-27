@@ -15,7 +15,7 @@ Enemy::Enemy(std::vector<Enemy*> *enemies, const int health)
 	std::cout << "Enemies size in Enemy: " << enemies->size() << std::endl;
 	Collision::CreateTextureAndBitmask(idle, spritesPath + "monster/slime1_front.png");
 	sprite.setTexture(idle);
-
+	sprite.setTextureRect(sf::IntRect(0, 0, 16, 16));
 	x = 400; 
 	y = 300;
 	sprite.setPosition(x, y);
@@ -32,7 +32,7 @@ void Enemy::update() {
 bool Enemy::hit(const int& damage) {
 	health -= damage;
 	std::cout << health << std::endl;
-	if (health < 0) {
+	if (health <= 0) {
 		return true;
 	}
 	return false;

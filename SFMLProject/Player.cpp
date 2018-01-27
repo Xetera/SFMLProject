@@ -396,7 +396,7 @@ private:
 	void idleAnimation() {
 		
 		sprite.setTexture(idle);
-		sprite.setTextureRect(sf::IntRect(0, 0, 16, 24));
+		sprite.setTextureRect(sf::IntRect(0, 0, 16, 21));
 	}
 	
 };

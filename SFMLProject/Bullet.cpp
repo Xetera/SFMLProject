@@ -42,24 +42,23 @@ public:
 		checkCollisions();
 	}
 
-	void fire() {
-		
-	}
 
 	void checkCollisions() {
 		size_t size = enemies->size();
-		for (int i = size; i > 0; --i) {
-			Enemy* enemy = enemies->at(i);
-			/*
+		if (size == 0) return;
+		for (std::vector<Enemy*>::size_type i = size; i > 0; --i) {
+			std::vector<Enemy*>::size_type index = i - 1;
+			Enemy* enemy = enemies->at(index);
+			std::cout << enemy->x << std::endl;
 			if (Collision::PixelPerfectTest(sprite, enemy->sprite)) {
 				std::cout << "HIT" << std::endl;
 				bool isDead = enemy->hit(damage);
 				if (isDead)	{
-					kill(enemy, i);
+					kill(enemy, index);
 				}
 
 			}
-			*/
+			
 		}
 		
 	}

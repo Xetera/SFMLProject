@@ -48,7 +48,7 @@ int main() {
 	window.setFramerateLimit(120);
 
 	Enemy* enemy = new Enemy(enemies, 10);
-	Enemy* enemy2 = new Enemy(enemies, 10);
+	//Enemy* enemy2 = new Enemy(enemies, 10);
 	
 	cout << "Enemies size: " << enemies->size() << endl;
 
@@ -95,7 +95,14 @@ int main() {
 		window.clear();
 
 		window.draw(player.sprite);
-		window.draw(enemy->sprite);
+		size_t enemySize = enemies->size();
+		cout << enemySize << endl;
+		for (std::vector<Enemy*>::size_type i = 0; i < enemySize; ++i) {
+			Enemy* loopEnemy = enemies->at(i);
+			loopEnemy->update();
+			window.draw(loopEnemy->sprite);
+
+		}
 		window.draw(cursor);
 
 
@@ -103,7 +110,7 @@ int main() {
 		
 
 		player.update();
-		enemy->update();
+		
 		window.display();
 
 
