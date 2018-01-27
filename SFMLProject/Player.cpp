@@ -102,7 +102,7 @@ public:
 		//xVelocity = 0.f;
 
 		if (util::vectorEmpty(movement)) { // our guy is not moving
-			if (sprite.getTexture() != &idle) sprite.setTexture(idle);
+			if (sprite.getTexture() != &idle) idleAnimation();
 			return;
 		}
 
@@ -391,9 +391,9 @@ private:
 	}
 
 	void idleAnimation() {
-
+		
 		sprite.setTexture(idle);
-
+		sprite.setTextureRect(sf::IntRect(0, 0, 16, 24));
 	}
 	
 };
