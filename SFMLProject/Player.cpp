@@ -36,10 +36,10 @@ public:
 		downLeft.loadFromFile(spritesPath + "characters/1_diagdown.png");
 		left.loadFromFile(spritesPath + "characters/1_side.png");
 		right.loadFromFile(spritesPath + "characters/1_side.png");
-		sprite.setTexture(down);
+		sprite.setTexture(idle);
 		//sprite.setTextureRect(sf::IntRect(30, 0, 20, 24));
 		scale = 1;
-		sprite.setScale(scale, scale);
+		//sprite.setScale(scale, scale);
 		spriteSizeX = sprite.getTexture()->getSize().x/4;
 		spriteSizeY = (sprite.getTexture()->getSize().y);
 		sprite.setOrigin(x, y);
@@ -84,34 +84,44 @@ public:
 
 		sprite.move(util::getUnitVector(movement));
 
-		if (movement.x == 0 && movement.y == 00) {
+		cout << movement.x << " " << movement.y << endl;
+		if (movement.x == 0.0f && movement.y == 0.0f) {
 			idleAnimation();
 		}
 		else {
-			float direction = util::getVectorAngle(movement);
+			if (movement.x > 0 && movement.y == 0) {
+				cycleRightAnimation();
+				cout << "Going left" << endl;
+			}
 
-			cout << direction << " " << M_PI /4  << endl;
+			else if (movement.x < 0 && movement.y == 0) {
+				cycleLeftAnimation();
+			}
 
-			if (direction == LOOKING_LEFT) {
+			else if (movement.x == 0 && movement.y < 0) {
+				cycleUpAnimation();
+			}
+			else if (movement.x == 0 && movement.y > 0) {
+				cycleDownAnimation();
+			}
+
+			else if (movement.x < 0 && movement.y) {
 				cycleUpLeftAnimation();
 			}
 
-			if (direction == M_PI / 4) {
+			else if (movement.x > 0 && movement.y < 0) {
 				cycleUpRightAnimation();
 			}
-			else if (direction == LOOKING_DOWN_RIGHT) {
+			else if (movement.x > 0 && movement.y > 0) {
 				cycleDownRightAnimation();
 			}
-			else if (direction == LOOKING_RIGHT) {
-				cycleRightAnimation();
-			}
+			else if (movement.x < 0 && movement.y > 0) {
+				cycleDownLeftAnimation();
 
-			else if (direction == M_PI / 2) {
-				cycleUpAnimation();
 			}
-			else if (direction == LOOKING_DOWN) {
-				cycleDownAnimation();
-			}
+		
+
+	
 		}
 	
 		
@@ -209,6 +219,7 @@ private:
 	int spriteCycle;
 	int cycleOffset = 0;
 
+	int bulletDecay = 100;
 	void drawBullets() {
 		size_t bulletsSize = bullets.size();
 		//std::cout << bulletsSize << std::endl;
@@ -216,7 +227,7 @@ private:
 		for (size_t i = bulletsSize - 1; i > 0 ; --i) {
 			// looping backwards to avoid shifting when we remove bullets
 
-			if (util::getDistance(midPointX, midPointY, bullets[i]->x, bullets[i]->y) < 100) {
+			if (util::getDistance(midPointX, midPointY, bullets[i]->x, bullets[i]->y) < bulletDecay) {
 				
 				bullets[i]->update();
 				window->draw(bullets[i]->sprite);
@@ -360,8 +371,27 @@ private:
 			spriteCycle++;
 		}
 	}
-	
+
+	void cycleDownLeftAnimation() {
+		cycleOffset++;
+		sprite.setTexture(downLeft);
+
+		if (spriteCycle == 4) {
+			spriteCycle = 0;
+		}
+
+		if (cycleOffset >= 20) {
+			sprite.setTextureRect(sf::IntRect(20 * spriteCycle, 0, 20, 24));
+			cycleOffset = 0;
+			spriteCycle++;
+		}
+	}
+
 	void idleAnimation() {
+		cout << sprite.getTexture() << endl;
+		if (sprite.getTexture() == &idle) {
+			return;
+		}
 		sprite.setTexture(idle);
 	}
 	

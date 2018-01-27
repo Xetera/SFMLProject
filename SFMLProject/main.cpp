@@ -48,9 +48,7 @@ int main() {
 
 	cout << enemies->size() << endl;
 
-	while (window.isOpen())
-	{
-
+	while (window.isOpen()) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 			player.moveUp();
 		}
@@ -84,13 +82,6 @@ int main() {
 				player.fireShotgun();
 				break;
 			}
-	
-
-
-
-
-
-			
 				
 		}
 
