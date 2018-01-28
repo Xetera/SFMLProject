@@ -35,17 +35,17 @@ public:
 		//std::cout << "Destroyed" << std::endl;
 	}
 
-	void update() {
+	bool update() {
 		x += xVelocity;
 		y += yVelocity;
 		sprite.move(xVelocity * speed, yVelocity * speed);
-		checkCollisions();
+		return checkCollisions();
 	}
 
 
-	void checkCollisions() {
+	bool checkCollisions() {
 		size_t size = enemies->size();
-		if (size == 0) return;
+		if (size == 0) return false;
 		for (std::vector<Enemy*>::size_type i = size; i > 0; --i) {
 			std::vector<Enemy*>::size_type index = i - 1;
 			Enemy* enemy = enemies->at(index);
@@ -53,11 +53,15 @@ public:
 			if (Collision::BoundingBoxTest(sprite, enemy->sprite)) {
 
 				bool isDead = enemy->hit(damage);
+
 				if (isDead)	{
 					kill(enemy, index);
 				}
+
+				return false;
 			}
 		}
+		return false;
 	}
 
 	template<typename T>

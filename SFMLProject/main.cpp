@@ -36,10 +36,7 @@ void horde(unsigned const int amount) {
 int main() {
 	srand(time(0));
 
-	
 
-	//b2World* world = new b2World(gravity);
-	//world = new b2World;
 	
 
 
@@ -62,7 +59,7 @@ int main() {
 
 	float x = 4.f; 
 	float y = 4.f;
-	window.setFramerateLimit(120);
+	window.setFramerateLimit(60);
 
 	//Enemy* enemy = new Enemy(enemies, 10);
 	//Enemy* enemy2 = new Enemy(enemies, 10);

@@ -1,25 +1,13 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include"Entity.cpp"
-#include"AnimatedSprite.hpp"
-#include<vector>
-#include"Bullet.cpp"
-#include"Collision.h"
-
-#include"Quadtree.h"
-
 #define _USE_MATH_DEFINES
 #include<math.h>
+#include<vector>
 
-#define LOOKING_LEFT         3.141593
-#define LOOKING_DOWN         1.5708
-#define LOOKING_UP			-1.5708
-#define LOOKING_RIGHT        0
-#define LOOKING_UP_RIGHT    -0.785398
-#define LOOKING_DOWN_RIGHT  -0.785398
-#define LOOKING_UP_LEFT      2.35619
-#define LOOKING_DOWN_LEFT   -2.35619
+#include"Entity.cpp"
+#include"Bullet.cpp"
+#include"Collision.h"
 
 using std::cout;
 using std::endl;
@@ -83,8 +71,8 @@ public:
 		this->xVelocity = additionX;
 		this->yVelocity = additionY;
 	}
-	/*overloading*/
 
+	/*overloading*/
 	void updateVelocity(sf::Vector2f position) {
 		xVelocity = position.x;
 		yVelocity = position.y;
@@ -152,28 +140,7 @@ public:
 		movement.x = 0;
 		movement.y = 0;
 
-		//std::cout << x << ", " << y << std::endl;
-		/*
-		if (x + spriteSizeX > windowX) {
-			x = windowX - spriteSizeX;
-		}
-
-		if (y + spriteSizeY > windowY) {
-			y = windowY - spriteSizeY;
-		}
-
-		if (x < 0) {
-			x = 0;
-		}
-		if (y < 0) {
-			y = 0;
-		}
-		sprite.setOrigin((spriteSizeX * scale) / 2 + x, (spriteSizeY * scale) / 2 + y);
-		sf::Vector2f mouse = getVectorToMouse();
-		moveToMouse(mouse);
-		*/
-		//moveToMouse();
-		//std::thread first;
+		
 
 	}
 
@@ -240,17 +207,24 @@ private:
 		for (size_t i = bulletsSize - 1; i > 0 ; --i) {
 			// looping backwards to avoid shifting when we remove bullets
 			if (util::getDistance(midPointX, midPointY, bullets[i]->x, bullets[i]->y) < bulletDecay) {	
-				bullets[i]->update();
+				bool hit = bullets[i]->update();
+				if (hit){
+					destroyBullet(i);
+				}
 				window->draw(bullets[i]->sprite);
 			}
 			else {
-				Bullet* bullet_ptr = bullets[i];
-
-				// we probably don't want to be removing things from an array while looping
-				bullets.erase(bullets.begin() + i);
-				delete bullet_ptr;
+				destroyBullet(i);
 			}
 		}
+	}
+
+	void destroyBullet(size_t index) {
+		Bullet* bullet_ptr = bullets[index];
+
+		// we probably don't want to be removing things from an array while looping
+		bullets.erase(bullets.begin() + index);
+		delete bullet_ptr;
 	}
 
 	sf::Vector2f getVectorToMouse() {
