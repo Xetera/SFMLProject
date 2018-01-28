@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include"Entity.cpp"
+#include"Entity.h"
 #include"Common.h"
 #include"Util.h"
 #include<iostream>
@@ -49,18 +49,15 @@ public:
 		for (std::vector<Enemy*>::size_type i = size; i > 0; --i) {
 			std::vector<Enemy*>::size_type index = i - 1;
 			Enemy* enemy = enemies->at(index);
-			std::cout << enemy->x << std::endl;
-			if (Collision::PixelPerfectTest(sprite, enemy->sprite)) {
-				std::cout << "HIT" << std::endl;
+			
+			if (Collision::BoundingBoxTest(sprite, enemy->sprite)) {
+
 				bool isDead = enemy->hit(damage);
 				if (isDead)	{
 					kill(enemy, index);
 				}
-
 			}
-			
 		}
-		
 	}
 
 	template<typename T>

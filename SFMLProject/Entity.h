@@ -1,8 +1,12 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
+//#include"Quadtree.h"
+
 
 class Entity {
 public:
+
 	float x;
 	float y;
 
@@ -15,14 +19,18 @@ public:
 	int maxHealth;
 	int health;
 
+	float width;
+	float height;
 	sf::Sprite sprite;
 
 
 	inline void updateMousePosition(sf::Vector2f mouse);
 	inline virtual void update();
+
 protected:
+
 	float speed;
-	float radius;
+
 
 
 	enum EDirection {

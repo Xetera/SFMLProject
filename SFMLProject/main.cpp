@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include"typedefs.h"
 #include<iostream>
+
+
 #include"Player.cpp"
 #include"Enemy.h"
 #include"Common.h"
@@ -22,9 +23,24 @@ void updateEntities() {
 
 std::vector<Enemy*> *enemies = new std::vector<Enemy*>;
 
+void horde(unsigned const int amount) {
+
+	while (enemies->size() < amount) {
+		int random = util::randomRange(0, (int)windowY);
+		Enemy* enemy = new Enemy(enemies, random, 0 , 10);
+	}
+}
+
+
+
 int main() {
 	srand(time(0));
 
+	
+
+	//b2World* world = new b2World(gravity);
+	//world = new b2World;
+	
 
 
 	sf::Sprite cursor;
@@ -39,6 +55,7 @@ int main() {
 
 	sf::RenderWindow* window_ptr = &window;
 
+
 	Player player(window_ptr, enemies);
 
 	//entities.emplace_back(player);
@@ -47,10 +64,12 @@ int main() {
 	float y = 4.f;
 	window.setFramerateLimit(120);
 
-	Enemy* enemy = new Enemy(enemies, 10);
+	//Enemy* enemy = new Enemy(enemies, 10);
 	//Enemy* enemy2 = new Enemy(enemies, 10);
 	
 	cout << "Enemies size: " << enemies->size() << endl;
+
+	
 
 	while (window.isOpen()) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
@@ -100,9 +119,12 @@ int main() {
 		for (std::vector<Enemy*>::size_type i = 0; i < enemySize; ++i) {
 			Enemy* loopEnemy = enemies->at(i);
 			loopEnemy->update();
+			loopEnemy->move(sf::Vector2f(0, 1));
 			window.draw(loopEnemy->sprite);
+			
 
 		}
+		horde(500);
 		window.draw(cursor);
 
 

@@ -6,6 +6,9 @@
 #include<vector>
 #include"Bullet.cpp"
 #include"Collision.h"
+
+#include"Quadtree.h"
+
 #define _USE_MATH_DEFINES
 #include<math.h>
 
@@ -31,6 +34,7 @@ public:
 
 	Player(sf::RenderWindow* window, std::vector<Enemy*> *enemies)
 		:window(window), enemies(enemies) {
+
 		Collision::CreateTextureAndBitmask(idle, spritesPath + "characters/1.png");
 		Collision::CreateTextureAndBitmask(down, spritesPath + "characters/1_south2.png");
 		Collision::CreateTextureAndBitmask(up, spritesPath + "characters/1_north.png");
@@ -207,7 +211,6 @@ private:
 	sf::Texture pistol;
 
 	sf::RenderWindow* window;
-
 	std::vector<Enemy*> *enemies;
 	float x;
 	float y;

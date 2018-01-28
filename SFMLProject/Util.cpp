@@ -50,7 +50,7 @@ sf::Vector2f util::getUnitVector(sf::Vector2f& vector) {
 	double pow1 = pow((double)vector.x, 2);
 	double pow2 = pow((double)vector.y, 2);
 
-	float distance = sqrt(pow1 + pow2);
+	double distance = sqrt(pow1 + pow2);
 	out.x = (float)(vector.x / distance);
 	out.y = (float)(vector.y / distance);
 	return out;

@@ -4,8 +4,9 @@
 #include"Collision.h"
 #include<iostream>
 #include"Util.h"
-Enemy::Enemy(std::vector<Enemy*> *enemies, const int health)
-	:enemies(enemies), health(health) {
+
+Enemy::Enemy(std::vector<Enemy*> *enemies, float x, float y, const int health)
+	:enemies(enemies), x(x), y(y), health(health) {
 	id = util::generateID();
 
 
@@ -16,8 +17,6 @@ Enemy::Enemy(std::vector<Enemy*> *enemies, const int health)
 	Collision::CreateTextureAndBitmask(idle, spritesPath + "monster/slime1_front.png");
 	sprite.setTexture(idle);
 	sprite.setTextureRect(sf::IntRect(0, 0, 16, 16));
-	x = 400; 
-	y = 300;
 	sprite.setPosition(x, y);
 }
 
@@ -31,9 +30,13 @@ void Enemy::update() {
 
 bool Enemy::hit(const int& damage) {
 	health -= damage;
-	std::cout << health << std::endl;
+	//std::cout << health << std::endl;
 	if (health <= 0) {
 		return true;
 	}
 	return false;
+}
+
+void Enemy::move(sf::Vector2f vector) {
+	sprite.move(vector);
 }
