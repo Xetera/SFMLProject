@@ -3,7 +3,7 @@
 
 class Enemy : public Entity {
 	std::vector<Enemy*> *enemies;
-	int id;
+
 	int health;
 	
 public:
@@ -13,7 +13,7 @@ public:
 	sf::Texture idle;
 	Enemy(std::vector<Enemy*> *enemies, float x, float y, const int health);
 	~Enemy();
-	virtual void update() override;
+	void update();
 	void move(sf::Vector2f vector);
 
     // returns true if enemy is dead

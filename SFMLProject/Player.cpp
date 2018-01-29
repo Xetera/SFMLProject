@@ -8,6 +8,7 @@
 #include"Entity.cpp"
 #include"Bullet.cpp"
 #include"Collision.h"
+#include"Quadtree.h"
 
 using std::cout;
 using std::endl;
@@ -78,7 +79,7 @@ public:
 		yVelocity = position.y;
 	}
 
-	virtual void update() override {
+	virtual void update() {
 		//cout << "X: " << x << ", Y: " << y << endl;
 		x = sprite.getPosition().x;
 		y = sprite.getPosition().y;
@@ -146,7 +147,10 @@ public:
 
 	void fire() {
 		Bullet* bullet = new Bullet(getAngleToMouse(), midPointX, midPointY , 1, damage, enemies);
+		//Node bulletNode(bullet);
 		bullets.emplace_back(bullet);
+		//quad.insert(&bulletNode);
+		
 	}
 
 	void fireShotgun() {
@@ -163,6 +167,7 @@ public:
 	}
 
 private:
+	//Quad& world;
 	std::vector<Bullet*> bullets;
 	sf::Texture texture;
 	sf::Texture idle;
@@ -240,7 +245,6 @@ private:
 
 	float getAngleToMouse() {
 		return atan2(mouseY - midPointY, mouseX - midPointX);
-
 	}
 
 

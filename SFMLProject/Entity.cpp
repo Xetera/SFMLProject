@@ -12,6 +12,7 @@ void Entity::updateMousePosition(sf::Vector2f mouse) {
 	mouseY = mouse.y;
 }
 
+/*
 void Entity::update(){
 	x += sprite.getPosition().x;
 	y += sprite.getPosition().y;
@@ -20,6 +21,8 @@ void Entity::update(){
 	//std::cout << x << ", " << y << std::endl;
 	
 }
+*/
+
 /*
 Entity::resolveDirection(sf::Vector2f direction) {
 	if ()

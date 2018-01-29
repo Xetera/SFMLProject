@@ -6,7 +6,7 @@
 
 class Entity {
 public:
-
+	int id;
 	float x;
 	float y;
 
@@ -25,7 +25,7 @@ public:
 
 
 	inline void updateMousePosition(sf::Vector2f mouse);
-	inline virtual void update();
+	//inline virtual void update();
 
 protected:
 

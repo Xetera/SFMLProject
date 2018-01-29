@@ -6,6 +6,7 @@
 #include"Enemy.h"
 #include"Common.h"
 
+
 using std::cout;
 using std::endl;
 
@@ -13,14 +14,15 @@ std::vector<Entity> entities;
 
 // mouseMap mousePositions;
 sf::Vector2f position;
-
+/*
 void updateEntities() {
 	size_t entitySize = entities.size();
 	for (std::vector<Entity>::size_type i = 0; i < entitySize; ++i) {
 		entities[i].update();
 	}
-}
+}*/
 
+Quad world(Point(0, 0), Point(windowX, windowY));
 std::vector<Enemy*> *enemies = new std::vector<Enemy*>;
 
 void horde(unsigned const int amount) {
@@ -28,6 +30,10 @@ void horde(unsigned const int amount) {
 	while (enemies->size() < amount) {
 		int random = util::randomRange(0, (int)windowY);
 		Enemy* enemy = new Enemy(enemies, random, 0 , 10);
+
+		//Node enemyNode(enemy);
+		//world.insert(&enemyNode);
+
 	}
 }
 
@@ -35,7 +41,8 @@ void horde(unsigned const int amount) {
 
 int main() {
 	srand(time(0));
-
+	
+	
 
 	
 
@@ -64,7 +71,7 @@ int main() {
 	//Enemy* enemy = new Enemy(enemies, 10);
 	//Enemy* enemy2 = new Enemy(enemies, 10);
 	
-	cout << "Enemies size: " << enemies->size() << endl;
+	//cout << "Enemies size: " << enemies->size() << endl;
 
 	
 
@@ -112,7 +119,7 @@ int main() {
 
 		window.draw(player.sprite);
 		size_t enemySize = enemies->size();
-		cout << enemySize << endl;
+		//cout << enemySize << endl;
 		for (std::vector<Enemy*>::size_type i = 0; i < enemySize; ++i) {
 			Enemy* loopEnemy = enemies->at(i);
 			loopEnemy->update();

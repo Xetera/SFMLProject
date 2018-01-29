@@ -42,9 +42,6 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Quadtree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="typedefs.h">
@@ -66,9 +63,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Quadtree.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

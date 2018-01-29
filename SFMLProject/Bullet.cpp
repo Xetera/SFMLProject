@@ -6,8 +6,9 @@
 #include<math.h>
 #include"Collision.h"
 #include<vector>
+#include"Quadtree.h"
 
-class Bullet {
+class Bullet : public Entity {
 	sf::Texture spriteTexture;
 	
 	std::vector<Enemy*> *enemies;
