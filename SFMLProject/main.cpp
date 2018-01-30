@@ -5,7 +5,7 @@
 #include"Player.cpp"
 #include"Enemy.h"
 #include"Common.h"
-
+#include"World.h"
 
 using std::cout;
 using std::endl;
@@ -23,7 +23,7 @@ void updateEntities() {
 }*/
 
 Quad world(Point(0, 0), Point(windowX, windowY));
-std::vector<Enemy*> *enemies = new std::vector<Enemy*>;
+
 
 void horde(unsigned const int amount) {
 
@@ -66,8 +66,9 @@ int main() {
 
 	float x = 4.f; 
 	float y = 4.f;
-	window.setFramerateLimit(60);
 
+	window.setFramerateLimit(60);
+	World world(window_ptr);
 	//Enemy* enemy = new Enemy(enemies, 10);
 	//Enemy* enemy2 = new Enemy(enemies, 10);
 	
@@ -91,6 +92,8 @@ int main() {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 			player.moveLeft();
 		}
+
+		
 
 		sf::Event event;
 		while (window.pollEvent(event))
@@ -119,7 +122,7 @@ int main() {
 
 		window.draw(player.sprite);
 		size_t enemySize = enemies->size();
-		//cout << enemySize << endl;
+		
 		for (std::vector<Enemy*>::size_type i = 0; i < enemySize; ++i) {
 			Enemy* loopEnemy = enemies->at(i);
 			loopEnemy->update();
@@ -136,7 +139,7 @@ int main() {
 		
 
 		player.update();
-		
+		world.drawBackground();
 		window.display();
 
 

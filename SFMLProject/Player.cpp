@@ -154,16 +154,16 @@ public:
 	}
 
 	void fireShotgun() {
-		for (int i = 0; i < 4; ++i) {
-			float random = util::randomRange(getAngleToMouse() - 0.5f, getAngleToMouse() +  0.5f);
-			//std::cout << random << std::endl;
-			//std::cout << "Angle" << getAngleToMouse() << std::endl;
-
-
-			Bullet* bullet = new Bullet(random, midPointX, midPointY, 5, damage, enemies);
-			bullets.emplace_back(bullet);
-		}
 		
+		
+	}
+	
+	void switchWeapon(sf::Keyboard::Key key) {
+		switch(key) {
+		case sf::Keyboard::Num1:
+
+			break;
+		}
 	}
 
 private:

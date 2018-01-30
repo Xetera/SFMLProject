@@ -26,6 +26,10 @@ Enemy::~Enemy() {
 
 void Enemy::update() {
 	//std::cout << health << std::endl;
+	
+	if (sprite.getPosition().y > windowY) {
+		sprite.setPosition(sprite.getPosition().x, 0);
+	}
 }
 
 bool Enemy::hit(const int& damage) {

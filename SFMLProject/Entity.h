@@ -24,7 +24,7 @@ public:
 	sf::Sprite sprite;
 
 
-	inline void updateMousePosition(sf::Vector2f mouse);
+	inline void updateMousePosition(sf::Vector2f& mouse);
 	//inline virtual void update();
 
 protected:

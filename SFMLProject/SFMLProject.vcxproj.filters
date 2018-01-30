@@ -42,6 +42,12 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="typedefs.h">
@@ -63,6 +69,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

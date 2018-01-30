@@ -139,6 +139,8 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Util.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collision.h" />
@@ -148,6 +150,8 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="typedefs.h" />
     <ClInclude Include="Util.h" />
+    <ClInclude Include="Weapon.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

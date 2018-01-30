@@ -7,7 +7,7 @@
 //#include <Box2D.h>
 
 
-void Entity::updateMousePosition(sf::Vector2f mouse) {
+void Entity::updateMousePosition(sf::Vector2f& mouse) {
 	mouseX = mouse.x;
 	mouseY = mouse.y;
 }
