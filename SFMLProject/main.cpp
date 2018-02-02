@@ -10,7 +10,7 @@
 using std::cout;
 using std::endl;
 
-std::vector<Entity> entities;
+
 
 // mouseMap mousePositions;
 sf::Vector2f position;

@@ -77,5 +77,8 @@
     <ClInclude Include="Weapon.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

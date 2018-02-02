@@ -1,14 +1,16 @@
 #include<SFML\Graphics.hpp>
+#include<vector>
 #include"Common.h"
 #include"Weapon.h"
 #include"Util.h"
-#include"Bullet.cpp"
+
+#include"Bullet.h"
 
 Weapon::Weapon(sf::Texture& texture, sf::Sprite& sprite, int damage) 
 	: texture(texture), sprite(sprite), damage(damage) {
 }
 
-bool Weapon::fire(const int bulletsToFire) {
+bool Weapon::checkFiringConditions(const int bulletsToFire) {
 	if (bulletsToFire < ammo) {
 		return false;
 	}
@@ -24,8 +26,8 @@ Shotgun::Shotgun(sf::Texture& texture, sf::Sprite& sprite, int damage)
 	bulletsPerShot = 4;
 }
 
-void Shotgun::fire(const float& angle, std::vector<Bullet*>& bullets, const float x, const float y) {
-	if (!Weapon::fire(bulletsPerShot)) {
+void Shotgun::fire(const float angle, std::vector<Bullet*>& bullets, const float x, const float y){
+	if (!checkFiringConditions(bulletsPerShot)) {
 		return;
 	}
 	for (int i = 0; i < 4; ++i) {
@@ -41,7 +43,8 @@ void Shotgun::fire(const float& angle, std::vector<Bullet*>& bullets, const floa
 
 
 
-Radiate::Radiate(sf::Texture&, sf::Sprite&, int damage, float playerOriginX, float playerOriginY)
-	: Weapon::Weapon(texture, sprite, damage), {
-
+Radiate::Radiate(sf::Texture&, sf::Sprite&, int damage, float& playerOriginX, float& playerOriginY)
+	: Weapon::Weapon(texture, sprite, damage),
+	playerOriginX(playerOriginX), playerOriginY(playerOriginY) {
+	bulletsPerShot = 36;
 }
