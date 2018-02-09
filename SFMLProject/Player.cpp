@@ -9,6 +9,7 @@
 #include"Bullet.cpp"
 #include"Collision.h"
 #include"Quadtree.h"
+#include"Weapon.h"
 
 using std::cout;
 using std::endl;
@@ -146,7 +147,8 @@ public:
 	}
 
 	void fire() {
-		Bullet* bullet = new Bullet(getAngleToMouse(), midPointX, midPointY , 1, damage, enemies);
+
+		Bullet* bullet = new Bullet(getAngleToMouse(), midPointX, midPointY, 1, damage, enemies);
 		//Node bulletNode(bullet);
 		bullets.emplace_back(bullet);
 		//quad.insert(&bulletNode);
@@ -154,14 +156,17 @@ public:
 	}
 
 	void fireShotgun() {
-		
-		
+		if (currentWeapon != EWeapons::Shotgun) return;
+			
 	}
 	
 	void switchWeapon(sf::Keyboard::Key key) {
 		switch(key) {
 		case sf::Keyboard::Num1:
-
+			currentWeapon = EWeapons::Pistol;
+			break;
+		case sf::Keyboard::Num2:
+			currentWeapon = EWeapons::Shotgun;
 			break;
 		}
 	}
@@ -181,17 +186,17 @@ private:
 	sf::Texture right;
 
 	sf::Texture pistol;
-
+	std::vector<Enemy*>* enemies;
 	sf::RenderWindow* window;
-	std::vector<Enemy*> *enemies;
+
+	
 	float x;
 	float y;
 	float xVelocity;
 	float yVelocity;
 
-
 	float maxSpeed = 1;
-
+	EWeapons currentWeapon;
 	float spriteSizeX;
 	float spriteSizeY;
 

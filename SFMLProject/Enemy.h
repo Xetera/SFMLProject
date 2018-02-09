@@ -2,16 +2,15 @@
 #include"Entity.h"
 
 class Enemy : public Entity {
-	std::vector<Enemy*> *enemies;
 
 	int health;
-	
+	std::vector<Enemy*>* enemies;
 public:
 	float x;
 	float y;
 
 	sf::Texture idle;
-	Enemy(std::vector<Enemy*> *enemies, float x, float y, const int health);
+	Enemy(float x, float y, const int health, std::vector<Enemy*>*);
 	~Enemy();
 	void update();
 	void move(sf::Vector2f vector);

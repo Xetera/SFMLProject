@@ -5,16 +5,14 @@
 #include<iostream>
 #include"Util.h"
 
-Enemy::Enemy(std::vector<Enemy*> *enemies, float x, float y, const int health)
-	:enemies(enemies), x(x), y(y), health(health) {
+Enemy::Enemy(float x, float y, const int health, std::vector<Enemy*> *enemies)
+	:x(x), y(y), health(health), enemies(enemies) {
+	Collision::CreateTextureAndBitmask(idle, spritesPath + "monster/slime1_front.png");
 	id = util::generateID();
-
-
-
-	std::cout << id << std::endl;
+	
 	enemies->emplace_back(this);
 	std::cout << "Enemies size in Enemy: " << enemies->size() << std::endl;
-	Collision::CreateTextureAndBitmask(idle, spritesPath + "monster/slime1_front.png");
+
 	sprite.setTexture(idle);
 	sprite.setTextureRect(sf::IntRect(0, 0, 16, 16));
 	sprite.setPosition(x, y);

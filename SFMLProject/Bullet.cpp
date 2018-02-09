@@ -1,10 +1,11 @@
-#pragma once
+
 #include"Entity.h"
 #include"Common.h"
 #include"Util.h"
 #include"Quadtree.h"
 #include"Bullet.h"
 #include"Collision.h"
+#include"Enemy.h"
 
 #include<math.h>
 #include<SFML/Graphics.hpp>
@@ -12,8 +13,9 @@
 #include<vector>
 
 
-Bullet::Bullet(const float angle, const float x, const float y, const float speed, const int& damage, std::vector<Enemy*> *enemies)
-	: x(x), y(y), speed(speed), damage(damage), enemies(enemies) {
+inline Bullet::Bullet(const float angle, const float x, const float y, const float speed, const int damage, std::vector<Enemy*>* enemies)
+	: x(x), y(y), speed(speed), damage(damage) {
+	this->enemies = enemies;
 	Collision::CreateTextureAndBitmask(spriteTexture, spritesPath + "other/bulletb.png");
 	sprite.setTexture(spriteTexture);
 	sprite.rotate(util::radiansToDegrees(angle));
@@ -21,20 +23,24 @@ Bullet::Bullet(const float angle, const float x, const float y, const float spee
 	xVelocity = cos(angle);
 	yVelocity = sin(angle);
 }
-	
-Bullet::~Bullet() {
-	//std::cout << "Destroyed" << std::endl;
-}
 
-bool Bullet::update() {
+inline bool Bullet::update() {
 	x += xVelocity;
 	y += yVelocity;
 	sprite.move(xVelocity * speed, yVelocity * speed);
 	return checkCollisions();
 }
 
+template<typename T>
+inline void Bullet::kill(T* obj, const size_t& index) {
+	// everything we're gonna be calling delete on here will be a 'new' word object
+	enemies->erase(enemies->begin() + index);
+	delete obj;
 
-bool Bullet::checkCollisions() {
+}
+
+
+inline bool Bullet::checkCollisions() {
 	size_t size = enemies->size();
 	if (size == 0) return false;
 	for (std::vector<Enemy*>::size_type i = size; i > 0; --i) {
@@ -53,13 +59,5 @@ bool Bullet::checkCollisions() {
 		}
 	}
 	return false;
-}
-
-template<typename T>
-void Bullet::kill(T* obj, const size_t& index) {
-	// everything we're gonna be calling delete on here will be a 'new' word object
-	enemies->erase(enemies->begin() + index);
-	delete obj;
-
 }
 

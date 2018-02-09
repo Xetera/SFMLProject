@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include<iostream>
-
-
+#include"Bullet.h"
 #include"Player.cpp"
 #include"Enemy.h"
 #include"Common.h"
@@ -10,42 +9,22 @@
 using std::cout;
 using std::endl;
 
-
-
-// mouseMap mousePositions;
 sf::Vector2f position;
-/*
-void updateEntities() {
-	size_t entitySize = entities.size();
-	for (std::vector<Entity>::size_type i = 0; i < entitySize; ++i) {
-		entities[i].update();
-	}
-}*/
-
-Quad world(Point(0, 0), Point(windowX, windowY));
-
+std::vector<Enemy*> *enemies = new std::vector<Enemy*>;
 
 void horde(unsigned const int amount) {
-
+	
 	while (enemies->size() < amount) {
+		cout << enemies->size() << "in main" << endl;
 		int random = util::randomRange(0, (int)windowY);
-		Enemy* enemy = new Enemy(enemies, random, 0 , 10);
-
-		//Node enemyNode(enemy);
-		//world.insert(&enemyNode);
+		Enemy* enemy = new Enemy(random, 0, 10, enemies);
 
 	}
 }
 
-
-
 int main() {
+
 	srand(time(0));
-	
-	
-
-	
-
 
 	sf::Sprite cursor;
 	sf::Texture cursorTexture;
@@ -59,23 +38,14 @@ int main() {
 
 	sf::RenderWindow* window_ptr = &window;
 
-
 	Player player(window_ptr, enemies);
-
-	//entities.emplace_back(player);
 
 	float x = 4.f; 
 	float y = 4.f;
 
 	window.setFramerateLimit(60);
 	World world(window_ptr);
-	//Enemy* enemy = new Enemy(enemies, 10);
-	//Enemy* enemy2 = new Enemy(enemies, 10);
 	
-	//cout << "Enemies size: " << enemies->size() << endl;
-
-	
-
 	while (window.isOpen()) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 			player.moveUp();
@@ -93,13 +63,9 @@ int main() {
 			player.moveLeft();
 		}
 
-		
-
 		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			switch (event.type) 
-			{
+		while (window.pollEvent(event)){
+			switch (event.type) {
 			case sf::Event::Closed:
 				window.close();
 				break;
@@ -112,11 +78,9 @@ int main() {
 				player.fireShotgun();
 				break;
 			}
-				
 		}
 
 		position = static_cast<sf::Vector2f>(sf::Mouse::getPosition(window));
-
 
 		window.clear();
 
@@ -131,7 +95,7 @@ int main() {
 			
 
 		}
-		horde(500);
+		horde(200);
 		window.draw(cursor);
 
 
@@ -141,9 +105,7 @@ int main() {
 		player.update();
 		world.drawBackground();
 		window.display();
-
-
 	}
-
+	
 	return 0;
 }

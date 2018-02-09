@@ -10,8 +10,9 @@ protected:
 	int totalAmmo;
 	int ammo;
 	int range;
+	std::vector<Enemy*>* enemies;
 public:
-	Weapon(sf::Texture&, sf::Sprite&, int);
+	Weapon(sf::Texture&, sf::Sprite&, int, std::vector<Enemy*>*);
 	virtual bool checkFiringConditions(const int bullets);
 	virtual void addDamage(int newValue);
 };
@@ -32,3 +33,9 @@ public:
 	Radiate(sf::Texture&, sf::Sprite&, int damage, float& playerOriginX, float& playerOriginY);
 	void fire(const float& angle, std::vector<Bullet*>& bullets, const float x, const float y);
 };	
+
+enum EWeapons {
+	Pistol,
+	Shotgun,
+	Radiate
+};
