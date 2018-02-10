@@ -1,3 +1,4 @@
+#pragma once
 
 #include"Entity.h"
 #include"Common.h"
@@ -14,8 +15,7 @@
 
 
 inline Bullet::Bullet(const float angle, const float x, const float y, const float speed, const int damage, std::vector<Enemy*>* enemies)
-	: x(x), y(y), speed(speed), damage(damage) {
-	this->enemies = enemies;
+	: x(x), y(y), speed(speed), damage(damage), enemies(enemies) {
 	Collision::CreateTextureAndBitmask(spriteTexture, spritesPath + "other/bulletb.png");
 	sprite.setTexture(spriteTexture);
 	sprite.rotate(util::radiansToDegrees(angle));

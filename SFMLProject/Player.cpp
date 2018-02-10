@@ -13,7 +13,7 @@
 
 using std::cout;
 using std::endl;
-
+using namespace Weapons;
 
 class Player : public Entity {
 public:
@@ -35,6 +35,9 @@ public:
 		Collision::CreateTextureAndBitmask(left, spritesPath + "characters/1_side.png");
 		Collision::CreateTextureAndBitmask(right, spritesPath + "characters/1_side.png");
 
+
+		Collision::CreateTextureAndBitmask(shotgunSprite, spritesPath + "guns/shotgun/shot_diagdown.png");
+
 		sprite.setTexture(idle);
 		//sprite.setTextureRect(sf::IntRect(30, 0, 20, 24));
 		scale = 1;
@@ -46,7 +49,17 @@ public:
 		sprite.setPosition(windowX / 2, windowY / 2);
 		movement.x = 0;
 		movement.y = 0;
+	}
 
+	~Player() {
+		size_t bulletsSize = bullets.size();
+		if (bulletsSize > 0) {
+			for (int i = 0; i < bulletsSize; ++i) { // could be an off-by-one error here
+				bullets[i].erase;
+			}
+		}
+
+		delete shotgun;
 	}
 
 	void moveRight() {
@@ -137,12 +150,8 @@ public:
 
 		}
 	
-	
-		
 		movement.x = 0;
 		movement.y = 0;
-
-		
 
 	}
 
@@ -156,7 +165,12 @@ public:
 	}
 
 	void fireShotgun() {
-		if (currentWeapon != EWeapons::Shotgun) return;
+		//if (currentWeapon != EWeapons::Shotgun) return;
+		for (int i = 0; i < 4; ++i) {
+			Bullet* bullet = new Bullet(getAngleToMouse() + util::randomRange(-1.f, 1.f), midPointX, midPointY, 5, damage, enemies);
+			bullets.emplace_back(bullet);
+		}
+		
 			
 	}
 	
@@ -172,7 +186,6 @@ public:
 	}
 
 private:
-	//Quad& world;
 	std::vector<Bullet*> bullets;
 	sf::Texture texture;
 	sf::Texture idle;
@@ -185,6 +198,8 @@ private:
 	sf::Texture upRight;
 	sf::Texture right;
 
+	sf::Texture shotgunSprite;
+
 	sf::Texture pistol;
 	std::vector<Enemy*>* enemies;
 	sf::RenderWindow* window;
@@ -196,7 +211,7 @@ private:
 	float yVelocity;
 
 	float maxSpeed = 1;
-	EWeapons currentWeapon;
+	
 	float spriteSizeX;
 	float spriteSizeY;
 
@@ -209,6 +224,10 @@ private:
 	int cycleOffset = 0;
 
 	int bulletDecay = 100;
+
+	EWeapons currentWeapon;
+	Weapons::Shotgun* shotgun;
+	
 	void drawBullets() {
 		size_t bulletsSize = bullets.size();
 		// std::cout << bulletsSize << std::endl;
@@ -247,6 +266,14 @@ private:
 		return vector;
 	}
 	// radians
+
+	void newWeapon(EWeapons gun) {
+		switch (gun) {
+		case EWeapons::Shotgun:
+			shotgun = new Shotgun(shotgunSprite);+
+		}
+	}
+
 
 	float getAngleToMouse() {
 		return atan2(mouseY - midPointY, mouseX - midPointX);

@@ -8,31 +8,32 @@
 #include"Enemy.h"
 #include"Bullet.h"
 
-Weapon::Weapon(sf::Texture& texture, sf::Sprite& sprite, int damage, std::vector<Enemy*>* enemies) 
-	: texture(texture), sprite(sprite), damage(damage), enemies(enemies) {
+Weapons::Weapon::Weapon(sf::Texture& texture, int damage, std::vector<Enemy*>* enemies) 
+	: texture(texture), damage(damage), enemies(enemies) {
+	sprite.setTexture(texture);
 }
 
-bool Weapon::checkFiringConditions(const int bulletsToFire) {
+bool Weapons::Weapon::checkFiringConditions(const int bulletsToFire) {
 	if (bulletsToFire < ammo) {
 		return false;
 	}
 	return true;
 }
 
-void Weapon::addDamage(int damage) {
+void Weapons::Weapon::addDamage(int damage) {
 	this->damage += damage;
 }
 
-Shotgun::Shotgun(sf::Texture& texture, sf::Sprite& sprite, int damage)
-	: Weapon::Weapon(texture, sprite, damage, enemies) {
+Weapons::Shotgun::Shotgun(sf::Texture& texture, int damage)
+	: Weapon::Weapon(texture, damage, enemies) {
 	bulletsPerShot = 4;
 }
 
-void Shotgun::fire(const float angle, std::vector<Bullet*>& bullets, const float x, const float y){
+void Weapons::Shotgun::fire(const float angle, std::vector<Bullet*>& bullets, const float x, const float y){
 	if (!checkFiringConditions(bulletsPerShot)) {
 		return;
 	}
-	for (int i = 0; i < 4; ++i) {
+	for (int i = 0; i < bulletsPerShot; ++i) {
 		float random = util::randomRange(angle - 0.5f, angle + 0.5f);
 		//std::cout << random << std::endl;
 		//std::cout << "Angle" << getAngleToMouse() << std::endl;
@@ -45,8 +46,8 @@ void Shotgun::fire(const float angle, std::vector<Bullet*>& bullets, const float
 
 
 
-Radiate::Radiate(sf::Texture&, sf::Sprite&, int damage, float& playerOriginX, float& playerOriginY)
-	: Weapon::Weapon(texture, sprite, damage, enemies),
+Weapons::Radiate::Radiate(sf::Texture&, int damage, float& playerOriginX, float& playerOriginY)
+	: Weapon::Weapon(texture, damage, enemies),
 	playerOriginX(playerOriginX), playerOriginY(playerOriginY) {
 	bulletsPerShot = 36;
 }
