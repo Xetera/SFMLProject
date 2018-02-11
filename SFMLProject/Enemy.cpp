@@ -11,7 +11,6 @@ Enemy::Enemy(float x, float y, const int health, std::vector<Enemy*> *enemies)
 	id = util::generateID();
 	
 	enemies->emplace_back(this);
-	std::cout << "Enemies size in Enemy: " << enemies->size() << std::endl;
 
 	sprite.setTexture(idle);
 	sprite.setTextureRect(sf::IntRect(0, 0, 16, 16));

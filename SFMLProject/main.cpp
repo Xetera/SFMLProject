@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include<SFML/Network.hpp>
 #include<iostream>
 #include"Bullet.h"
 #include"Player.cpp"
@@ -12,8 +13,8 @@ using std::endl;
 sf::Vector2f position;
 std::vector<Enemy*> *enemies = new std::vector<Enemy*>;
 
+
 void horde(unsigned const int amount) {
-	
 	while (enemies->size() < amount) {
 		cout << enemies->size() << "in main" << endl;
 		int random = util::randomRange(0, (int)windowY);
@@ -22,12 +23,38 @@ void horde(unsigned const int amount) {
 	}
 }
 
+sf::UdpSocket socket;
 
+unsigned short port = 3000;
+
+
+void listen() {
+	sf::IpAddress sender;
+
+
+	char data[100];
+	std::size_t received;
+
+	if (socket.receive(data, sizeof(data), received, sender, port) != sf::Socket::Done)
+	{
+		return;// cout << "Error" << endl;
+	}
+	else {
+		std::cout << "Received " << received << " bytes from " << sender << " on port " << port << std::endl;
+		cout << data << endl;
+
+	}
+
+}
 
 int main() {
 
 	srand(time(0));
+	
 
+	// UDP socket:
+	socket.bind(port);
+	/*
 	sf::Sprite cursor;
 	sf::Texture cursorTexture;
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Game");
@@ -94,9 +121,8 @@ int main() {
 			loopEnemy->update();
 			loopEnemy->move(sf::Vector2f(0, 1));
 			window.draw(loopEnemy->sprite);
-			
-
 		}
+
 		horde(200);
 		window.draw(cursor);
 
@@ -107,7 +133,13 @@ int main() {
 		player.update();
 		world.drawBackground();
 		window.display();
-	}
+		
 	
+	}
+	*/
+	while (true) {
+		listen();
+
+	}
 	return 0;
 }
