@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SFMLProject", "SFMLProject\SFMLProject.vcxproj", "{C626AF38-6A7D-4EF7-BFE0-CDC1437E5E11}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SFMLServer", "SFMLProject\SFMLProject.vcxproj", "{C626AF38-6A7D-4EF7-BFE0-CDC1437E5E11}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SFMLClient", "SFMLClient\SFMLClient.vcxproj", "{D20C1417-DFA2-41FB-A9D1-C80041376FAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{C626AF38-6A7D-4EF7-BFE0-CDC1437E5E11}.Release|x64.Build.0 = Release|x64
 		{C626AF38-6A7D-4EF7-BFE0-CDC1437E5E11}.Release|x86.ActiveCfg = Release|Win32
 		{C626AF38-6A7D-4EF7-BFE0-CDC1437E5E11}.Release|x86.Build.0 = Release|Win32
+		{D20C1417-DFA2-41FB-A9D1-C80041376FAD}.Debug|x64.ActiveCfg = Debug|x64
+		{D20C1417-DFA2-41FB-A9D1-C80041376FAD}.Debug|x64.Build.0 = Debug|x64
+		{D20C1417-DFA2-41FB-A9D1-C80041376FAD}.Debug|x86.ActiveCfg = Debug|Win32
+		{D20C1417-DFA2-41FB-A9D1-C80041376FAD}.Debug|x86.Build.0 = Debug|Win32
+		{D20C1417-DFA2-41FB-A9D1-C80041376FAD}.Release|x64.ActiveCfg = Release|x64
+		{D20C1417-DFA2-41FB-A9D1-C80041376FAD}.Release|x64.Build.0 = Release|x64
+		{D20C1417-DFA2-41FB-A9D1-C80041376FAD}.Release|x86.ActiveCfg = Release|Win32
+		{D20C1417-DFA2-41FB-A9D1-C80041376FAD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,7 +23,9 @@ namespace Weapons {
 	class Shotgun : public Weapon {
 
 	public:
-		Shotgun(sf::Texture&, int);
+		float accuracy;
+
+		Shotgun(sf::Texture&, int, std::vector<Enemy*>*);
 		void fire(const float angle, std::vector<Bullet*>& bullets, const float x, const float y);
 	};
 

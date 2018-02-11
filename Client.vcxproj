@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{E828E31C-B5C3-415A-B543-0D4D7A9F3016}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\ftp\Ftp.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\opengl\OpenGL.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\pong\Pong.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\shader\Shader.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\sockets\Sockets.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\sockets\TCP.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\sockets\UDP.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\sound-capture\SoundCapture.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\sound\Sound.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\voip\Client.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\voip\Server.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\voip\VoIP.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\win32\Win32.cpp" />
+    <ClCompile Include="dependencies\sfml-2.4.2\examples\window\Window.cpp" />
+    <ClCompile Include="sfmlproject\AnimatedSprite.cpp" />
+    <ClCompile Include="sfmlproject\Animation.cpp" />
+    <ClCompile Include="sfmlproject\Ball.cpp" />
+    <ClCompile Include="sfmlproject\Bullet.cpp" />
+    <ClCompile Include="sfmlproject\Collision.cpp" />
+    <ClCompile Include="sfmlproject\Common.cpp" />
+    <ClCompile Include="sfmlproject\Enemy.cpp" />
+    <ClCompile Include="sfmlproject\Entity.cpp" />
+    <ClCompile Include="sfmlproject\main.cpp" />
+    <ClCompile Include="sfmlproject\Object.cpp" />
+    <ClCompile Include="sfmlproject\Player.cpp" />
+    <ClCompile Include="sfmlproject\Quadtree.cpp" />
+    <ClCompile Include="sfmlproject\Util.cpp" />
+    <ClCompile Include="sfmlproject\Weapon.cpp" />
+    <ClCompile Include="sfmlproject\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dependencies\sfml-2.4.2\examples\shader\Effect.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\Audio.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\AlResource.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\Export.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\InputSoundFile.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\Listener.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\Music.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\OutputSoundFile.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\Sound.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundBuffer.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundBufferRecorder.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundFileFactory.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundFileReader.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundFileWriter.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundRecorder.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundSource.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundStream.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\Config.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\Graphics.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\BlendMode.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\CircleShape.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Color.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\ConvexShape.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Drawable.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Export.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Font.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Glsl.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Glyph.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Image.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\PrimitiveType.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Rect.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\RectangleShape.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\RenderStates.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\RenderTarget.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\RenderTexture.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\RenderWindow.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Shader.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Shape.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Sprite.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Text.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Texture.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Transform.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Transformable.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\Vertex.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\VertexArray.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\graphics\View.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\Main.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\Network.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\Export.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\Ftp.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\Http.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\IpAddress.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\Packet.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\Socket.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\SocketHandle.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\SocketSelector.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\TcpListener.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\TcpSocket.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\network\UdpSocket.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\OpenGL.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\System.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Clock.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Err.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Export.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\FileInputStream.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\InputStream.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Lock.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\MemoryInputStream.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Mutex.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\NativeActivity.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\NonCopyable.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Sleep.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\String.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Thread.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\ThreadLocal.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\ThreadLocalPtr.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Time.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Utf.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Vector2.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\system\Vector3.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\Window.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Context.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\ContextSettings.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Event.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Export.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\GlResource.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Joystick.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Keyboard.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Mouse.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Sensor.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Touch.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\VideoMode.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\Window.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\WindowHandle.hpp" />
+    <ClInclude Include="dependencies\sfml-2.4.2\include\sfml\window\WindowStyle.hpp" />
+    <ClInclude Include="sfmlproject\AnimatedSprite.hpp" />
+    <ClInclude Include="sfmlproject\Animation.hpp" />
+    <ClInclude Include="sfmlproject\Bullet.h" />
+    <ClInclude Include="sfmlproject\Collision.h" />
+    <ClInclude Include="sfmlproject\Common.h" />
+    <ClInclude Include="sfmlproject\Enemy.h" />
+    <ClInclude Include="sfmlproject\Entity.h" />
+    <ClInclude Include="sfmlproject\Object.h" />
+    <ClInclude Include="sfmlproject\Quadtree.h" />
+    <ClInclude Include="sfmlproject\typedefs.h" />
+    <ClInclude Include="sfmlproject\Util.h" />
+    <ClInclude Include="sfmlproject\Weapon.h" />
+    <ClInclude Include="sfmlproject\World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dependencies\sfml-2.4.2\doc\html\AlResource_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\annotated.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Audio_2Export_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Audio_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\BlendMode_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\CircleShape_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classes.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1AlResource-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1AlResource.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1BlendMode-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1CircleShape-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1CircleShape.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Clock-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Clock.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Color-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Color.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Context-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Context.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1ContextSettings-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1ConvexShape-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1ConvexShape.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Drawable-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Drawable.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Event-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Event.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1FileInputStream-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1FileInputStream.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Font-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Font.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Ftp-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Ftp.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Ftp_1_1DirectoryResponse-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Ftp_1_1DirectoryResponse.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Ftp_1_1ListingResponse-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Ftp_1_1ListingResponse.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Ftp_1_1Response-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Ftp_1_1Response.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1GlResource-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1GlResource.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1GlResource_1_1TransientContextLock-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1GlResource_1_1TransientContextLock.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Glyph-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Glyph.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Http-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Http.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Http_1_1Request-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Http_1_1Request.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Http_1_1Response-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Http_1_1Response.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Image-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Image.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1InputSoundFile-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1InputSoundFile.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1InputStream-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1InputStream.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1IpAddress-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1IpAddress.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Joystick-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Joystick.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Keyboard-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Keyboard.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Listener-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Listener.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Lock-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Lock.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1MemoryInputStream-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1MemoryInputStream.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Mouse-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Mouse.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Music-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Music.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Mutex-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Mutex.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1NonCopyable-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1NonCopyable.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1OutputSoundFile-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1OutputSoundFile.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Packet-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Packet.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Rect-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Rect.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RectangleShape-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RectangleShape.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RenderStates-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RenderStates.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RenderTarget-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RenderTarget.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RenderTexture-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RenderTexture.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RenderWindow-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1RenderWindow.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Sensor-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Sensor.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Shader-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Shader.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Shape-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Shape.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Socket-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Socket.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SocketSelector-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SocketSelector.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Sound-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Sound.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundBuffer-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundBuffer.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundBufferRecorder-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundBufferRecorder.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundFileFactory-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundFileFactory.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundFileReader-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundFileReader.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundFileWriter-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundFileWriter.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundRecorder-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundRecorder.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundSource-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundSource.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundStream-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1SoundStream.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Sprite-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Sprite.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1String-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1String.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1TcpListener-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1TcpListener.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1TcpSocket-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1TcpSocket.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Text-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Text.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Texture-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Texture.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Thread-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Thread.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1ThreadLocal-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1ThreadLocal.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1ThreadLocalPtr-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1ThreadLocalPtr.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Time-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Time.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Touch-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Touch.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Transform-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Transform.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Transformable-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Transformable.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1UdpSocket-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1UdpSocket.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Utf_3_0116_01_4-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Utf_3_0116_01_4.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Utf_3_0132_01_4-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Utf_3_0132_01_4.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Utf_3_018_01_4-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Utf_3_018_01_4.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Vector2-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Vector2.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Vector3-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Vector3.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Vertex-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Vertex.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1VertexArray-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1VertexArray.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1VideoMode-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1VideoMode.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1View-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1View.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Window-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\classsf_1_1Window.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Clock_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Color_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Config_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\ContextSettings_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Context_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\ConvexShape_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\deprecated.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\dir_139bdea5517c8285c4c6d697501014f9.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\dir_357aa70a9ab2c22ea525f6a52810701d.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\dir_6282a846aef46c562df320c3c321393d.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\dir_873f3329ad3c448b0452012e1b50a7ca.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\dir_9ca93fe75e375680c8d5541792711465.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\dir_a465d99dc6d591b1fb2657a3e2e0ee9b.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\dir_b2566b3f099aab44b5dbaaac139ebf00.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\dir_fd27c1b34c2c91b14b67b46e2d75b448.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Drawable_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Err_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Event_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\FileInputStream_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\files.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Font_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Ftp_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_b.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_c.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_d.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_e.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_enum.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_b.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_c.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_d.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_e.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_f.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_g.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_h.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_i.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_j.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_k.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_l.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_m.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_n.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_o.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_p.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_q.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_r.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_s.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_t.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_u.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_v.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_w.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_x.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_y.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_eval_z.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_f.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_b.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_c.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_d.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_e.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_f.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_g.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_h.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_i.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_k.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_l.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_m.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_n.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_o.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_p.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_r.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_s.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_t.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_u.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_v.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_w.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_z.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_func_~.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_g.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_h.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_i.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_j.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_k.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_l.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_m.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_n.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_o.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_p.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_q.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_r.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_rela.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_s.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_t.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_type.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_u.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_v.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_vars.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_w.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_x.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_y.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_z.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\functions_~.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\GlResource_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Glsl_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Glyph_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Graphics_2Export_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Graphics_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\group__audio.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\group__graphics.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\group__network.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\group__system.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\group__window.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\hierarchy.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Http_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Image_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\index.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\InputSoundFile_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\InputStream_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\IpAddress_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Joystick_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Keyboard_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Listener_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Lock_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\mainpage_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Main_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\MemoryInputStream_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\modules.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Mouse_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Music_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Mutex_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\namespacemembers.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\namespacemembers_type.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\namespaces.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\namespacesf_1_1Glsl.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\NativeActivity_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Network_2Export_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Network_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\NonCopyable_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\OpenGL_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\OutputSoundFile_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Packet_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\pages.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\PrimitiveType_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\RectangleShape_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Rect_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\RenderStates_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\RenderTarget_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\RenderTexture_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\RenderWindow_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Sensor_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Shader_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Shape_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\singletonsf_1_1Utf.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Sleep_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SocketHandle_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SocketSelector_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Socket_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SoundBufferRecorder_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SoundBuffer_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SoundFileFactory_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SoundFileReader_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SoundFileWriter_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SoundRecorder_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SoundSource_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\SoundStream_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Sound_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Sprite_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\String_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1BlendMode.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1ContextSettings.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1JoystickButtonEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1JoystickButtonEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1JoystickConnectEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1JoystickConnectEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1JoystickMoveEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1JoystickMoveEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1KeyEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1KeyEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1MouseButtonEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1MouseButtonEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1MouseMoveEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1MouseMoveEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1MouseWheelEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1MouseWheelEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1MouseWheelScrollEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1MouseWheelScrollEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1SensorEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1SensorEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1SizeEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1SizeEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1TextEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1TextEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1TouchEvent-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Event_1_1TouchEvent.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Font_1_1Info-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Font_1_1Info.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Joystick_1_1Identification-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Joystick_1_1Identification.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1Shader_1_1CurrentTextureType.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1SoundFileReader_1_1Info-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1SoundFileReader_1_1Info.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1SoundStream_1_1Chunk-members.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\structsf_1_1SoundStream_1_1Chunk.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\System_2Export_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\System_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\TcpListener_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\TcpSocket_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Texture_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Text_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\ThreadLocalPtr_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\ThreadLocal_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Thread_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Time_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Touch_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Transformable_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Transform_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\UdpSocket_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Utf_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Vector2_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Vector3_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\VertexArray_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Vertex_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\VideoMode_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\View_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\WindowHandle_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\WindowStyle_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Window_2Export_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Window_2Window_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\doc\html\Window_8hpp_source.html" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\audio\SoundFileFactory.inl" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\graphics\Glsl.inl" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\graphics\Rect.inl" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\system\String.inl" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\system\Thread.inl" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\system\ThreadLocalPtr.inl" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\system\Utf.inl" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\system\Vector2.inl" />
+    <None Include="dependencies\sfml-2.4.2\include\sfml\system\Vector3.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

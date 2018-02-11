@@ -49,13 +49,15 @@ public:
 		sprite.setPosition(windowX / 2, windowY / 2);
 		movement.x = 0;
 		movement.y = 0;
+
+		shotgun = new Weapons::Shotgun(shotgunSprite, damage, enemies);
 	}
 
 	~Player() {
 		size_t bulletsSize = bullets.size();
 		if (bulletsSize > 0) {
-			for (int i = 0; i < bulletsSize; ++i) { // could be an off-by-one error here
-				bullets[i].erase;
+			for (std::vector<Bullet*>::size_type i = 0; i < bulletsSize; ++i) { // could be an off-by-one error here
+				bullets.erase(bullets.begin() + i);
 			}
 		}
 
@@ -156,11 +158,8 @@ public:
 	}
 
 	void fire() {
-
-		Bullet* bullet = new Bullet(getAngleToMouse(), midPointX, midPointY, 1, damage, enemies);
-		//Node bulletNode(bullet);
-		bullets.emplace_back(bullet);
-		//quad.insert(&bulletNode);
+		
+		shotgun->fire(getAngleToMouse(), bullets, midPointX, midPointY);
 		
 	}
 
@@ -226,6 +225,7 @@ private:
 	int bulletDecay = 100;
 
 	EWeapons currentWeapon;
+
 	Weapons::Shotgun* shotgun;
 	
 	void drawBullets() {
@@ -270,7 +270,11 @@ private:
 	void newWeapon(EWeapons gun) {
 		switch (gun) {
 		case EWeapons::Shotgun:
-			shotgun = new Shotgun(shotgunSprite);+
+			shotgun = new Weapons::Shotgun(shotgunSprite, damage, enemies);
+			break;
+		case EWeapons::Pistol:
+			//pistol = new Pistol();
+			break;
 		}
 	}
 

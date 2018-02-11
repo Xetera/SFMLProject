@@ -24,7 +24,7 @@ void Weapons::Weapon::addDamage(int damage) {
 	this->damage += damage;
 }
 
-Weapons::Shotgun::Shotgun(sf::Texture& texture, int damage)
+Weapons::Shotgun::Shotgun(sf::Texture& texture, int damage, std::vector<Enemy*>* enemies)
 	: Weapon::Weapon(texture, damage, enemies) {
 	bulletsPerShot = 4;
 }
@@ -34,7 +34,7 @@ void Weapons::Shotgun::fire(const float angle, std::vector<Bullet*>& bullets, co
 		return;
 	}
 	for (int i = 0; i < bulletsPerShot; ++i) {
-		float random = util::randomRange(angle - 0.5f, angle + 0.5f);
+		float random = util::randomRange(angle - accuracy, angle + accuracy);
 		//std::cout << random << std::endl;
 		//std::cout << "Angle" << getAngleToMouse() << std::endl;
 
