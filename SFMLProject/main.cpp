@@ -13,6 +13,22 @@ using std::endl;
 sf::Vector2f position;
 std::vector<Enemy*> *enemies = new std::vector<Enemy*>;
 
+struct keyPress {
+	bool up;
+	bool down;
+	bool left;
+	bool right;
+};
+
+sf::Packet& operator >>(sf::Packet& packet, keyPress& character) {
+	return packet >> character.up >> character.down >> character.left >> character.right;
+}
+
+sf::Packet& operator <<(sf::Packet& packet, const keyPress& character)
+{
+	return packet << character.up << character.down << character.left << character.right;
+}
+
 
 void horde(unsigned const int amount) {
 	while (enemies->size() < amount) {
@@ -25,24 +41,25 @@ void horde(unsigned const int amount) {
 
 sf::UdpSocket socket;
 
-unsigned short port = 3000;
+unsigned short port = 8080;
 
 
 void listen() {
 	sf::IpAddress sender;
 
-
-	char data[100];
+	sf::Packet packet;
 	std::size_t received;
-
-	if (socket.receive(data, sizeof(data), received, sender, port) != sf::Socket::Done)
-	{
-		return;// cout << "Error" << endl;
-	}
+	bool up;
+	bool down;
+	bool left;
+	bool right;
+	if (socket.receive(packet, sender, port) != sf::Socket::Done) return;
+	
 	else {
-		std::cout << "Received " << received << " bytes from " << sender << " on port " << port << std::endl;
-		cout << data << endl;
-
+		std::cout << "Received packet from " << sender << " on port " << port << std::endl;
+		up = packet;
+		packet >> up >> down >> left >> right;
+		cout << up << down << left << right << endl;
 	}
 
 }
